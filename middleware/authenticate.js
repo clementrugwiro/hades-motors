@@ -9,16 +9,17 @@ function authenticate(req,res,next){
 
     if(authHeader) { 
         token = authHeader.split(' ')[1]
+        verify(token,process.env.ACCESS_TOKEN_SECRET,(err, user)=>{
+            if(err) return res.sendStatus(403)
+            req.user = user;
+            console.log(user)
+            next()
+        })
     }
     else{
         res.status(403).send("you need to log in")
     }
-    verify(token,process.env.ACCESS_TOKEN_SECRET,(err, user)=>{
-        if(err) return res.sendStatus(403)
-        req.user = user;
-        console.log(user)
-        next()
-    })
+    
 }
 
 

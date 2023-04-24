@@ -2,40 +2,37 @@ const {Schema, model} = require('mongoose')
 
 
 const schema = Schema({
+        title:{
+                type:String,
+                required:[true,'please enter a firstname'],
+              
+        },
         carplate:{
                 type:String,
-                unique:true,
                 required:[true,'please enter a firstname'],
-                minlength:[5,'minimum length is 5 characters']
         },
-        ownerId:{
+        description: {
                 type:String,
                 required:[true,'please enter a firstname'],
-                minlength:[5,'minimum length is 5 characters']
         },
-        carbrand: {
-                type:String,
-                required:[true,'please enter a firstname'],
-                minlength:[6,'minimum length is 6 characters']
-        },
-        carmodel :{
+        location :{
                 type:String,
                 required:[true,'please enter a lastname'],
         },
-        releaseyear : {
+        startdate : {
                 type:String,
                 required:[true,'please enter a username'],
         },
-        carcolor:{
+        enddate:{
                 type:String,
                 required:[true,'please enter an email'],
         
         },
-        drivingroutine:{
+        payment:{
                 type:String,
                 required:[true,'please enter a password'],
         }
 
 })
 
-module.exports = model("car",schema)
+module.exports = model("advert",schema)

@@ -5,7 +5,8 @@ const  users = require ("./routes/users.js")
 const messages = require ("./routes/messages.js")
 const about = require ("./routes/about.js")
 const cars = require ("./routes/cars.js")
-const cors = require("cors")
+const cors = require("cors");
+const adverts = require('./routes/advert.js');
 
 const app = express();
       app.use(cors())
@@ -33,3 +34,4 @@ app.use(bodyParser.json())
     app.use("/api",messages)
     app.use("/api",about)
     app.use("/api",cars)
+    app.use("/api",adverts)

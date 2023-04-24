@@ -3,26 +3,6 @@ const {} = require ('dotenv/config')
 const {compare} = require("bcrypt")
 const {sign} = require("jsonwebtoken")
 
-const handleErrors=(err)=>{
-    // console.log(err.message,err.code);
-    let errors={
-        firstname:'',
-        lastname:'',
-        username:'',
-        email:'',
-        pwd:''
-    }
-    if(err.code===11000){
-        errors.email=" that email is already registered"
-    }
-
-    if(err.message.includes("user validation failed")){
-        Object.values(err.errors).forEach(({properties})=>{
-            errors[properties.path]=properties.message
-        })
-    }
-    return errors
-}
 
 const handleLoginErrors=(err)=>{
     // console.log(err.message,err.code);
